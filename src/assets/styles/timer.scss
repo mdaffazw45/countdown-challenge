@@ -1,0 +1,160 @@
+
+
+.container {
+    display: flex;
+    justify-content: center; /* Centers children horizontally */
+    align-items: center;     /* Centers children vertically */
+    flex-direction: column;
+    height: 100vh;           /* Takes the full viewport height */
+}
+.header {
+    width: auto;
+    height: 20%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    // border: 5px solid red;
+    margin-top: -10%;
+    margin-bottom: 0;  // Set the bottom margin to 0 to reduce the space below
+
+}
+
+.header h1 {
+    font-size: 30px;
+    letter-spacing: 5px;
+    font-weight: 700;
+    color: #faf9ff;
+    // border: 5px solid yellow;
+    margin-top: -60px;
+
+}
+
+
+.container-item {
+    // border: 5px solid black;
+    margin-top: -20px;  // This line will reduce the space between .container-item and .header
+}
+
+
+/* Timer Box Styles */
+.container-days-box,
+.container-hours-box,
+.container-minutes-box,
+.container-seconds-box {
+    width: 160px;
+    height: 160px;
+    background: #34364f; /* The background color of the box */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    font-weight: 700;
+    margin: 0 10px;  /* Spacing between the boxes */
+    position: relative;
+}
+
+
+.container-days-box p,
+.container-hours-box p,
+.container-minutes-box p,
+.container-seconds-box p {
+    z-index: 2;  // ensures the text is rendered above other sibling elements
+    position: relative;  // required for z-index to take effect
+    color: #fa5c81;
+    font-weight: 700;
+}
+
+
+/* Upper Box Styles for the desired color effect */
+.container-days-box-upper,
+.container-hours-box-upper,
+.container-minutes-box-upper,
+.container-seconds-box-upper {
+    border-radius: 8px;
+    width: 100%;          // takes the full width of the parent box
+    height: 50%;          // takes half the height of the parent box
+    background: #2c2c44;  // desired color
+    position: absolute;   // to position it inside its parent box
+    top: 0;               // position it at the top of the parent box
+    left: 0;              // position it at the left of the parent box
+}   
+
+/* Labels for Days, Hours, Minutes, Seconds */
+.container-days-box::after,
+.container-hours-box::after,
+.container-minutes-box::after,
+.container-seconds-box::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: -50px;
+    font-size: 20px;
+    color: #86889e;
+    letter-spacing: 1px;
+}
+
+.container-days-box::after {
+    content: 'DAYS';
+}
+
+.container-hours-box::after {
+    content: 'HOURS';
+}
+
+.container-minutes-box::after {
+    content: 'MINUTES';
+}
+
+.container-seconds-box::after {
+    content: 'SECONDS';
+}
+
+/* Container Item */
+.container-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+@media only screen and (max-width:600px) {
+    .header h1 {
+        font-size: 20px;  // Reduce the font-size for smaller screens
+        letter-spacing: 3px;  // Reduce the letter-spacing
+        // border: 3px solid greenyellow;  // Reduce the border thickness
+        margin-top: -50px;  // Adjust the top margin
+        margin-bottom: -80px;
+    }
+
+    .container-item {
+        gap: 5px;  // Reduce the gap between boxes
+    }
+
+    .container-days-box,
+    .container-hours-box,
+    .container-minutes-box,
+    .container-seconds-box {
+        width: 70px;  // Reduce the width of the boxes
+        height: 70px;  // Reduce the height of the boxes
+        font-size: 40px;  // Reduce the font size inside the boxes
+        margin: 3px;  // Reduce the margin between boxes
+    }
+
+    /* Labels for Days, Hours, Minutes, Seconds */
+    .container-days-box::after,
+    .container-hours-box::after,
+    .container-minutes-box::after,
+    .container-seconds-box::after {
+        font-size: 14px;  // Reduce the font size of the labels
+        bottom: -25px;  // Adjust the position of the labels
+    }
+
+    .game-over-content {
+        font-size: 15px;
+        padding: 10px;
+        text-align: center;
+    }
+}

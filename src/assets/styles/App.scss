@@ -1,0 +1,56 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #201f2a;
+  background-image: url("../images/pattern-hills.svg"), url("../images/bg-stars.svg");
+  background-position: bottom center, center center;
+  background-repeat: repeat-x, no-repeat; 
+  background-size: 100% auto, cover;
+  animation: mymove 5s infinite; 
+
+  @media only screen and (max-width: 600px) {
+    background-size: 200% auto, cover;  // Increase the size of pattern-hills
+  }
+}
+
+.medsos {
+  svg {
+    width: 50px; // Adjust the size as you prefer
+    height: 50px; // Adjust the size as you prefer
+
+    &:not(:last-child) {
+      margin-right: 10px; // Add spacing between the icons if needed
+    }
+  }
+}
+
+.game-over-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75); // semi-transparent black background for the shadow effect
+  display: flex;
+  align-items: center;
+  font-weight: 900;
+  justify-content: center;
+  z-index: 9999; // Ensure the overlay is on top of everything else
+}
+
+.game-over-content {
+  font-size: 50px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+
+@keyframes mymove {
+  50% {
+    background-position: bottom center, center left;
+  }
+}
